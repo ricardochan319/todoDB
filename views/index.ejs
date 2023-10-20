@@ -1,0 +1,42 @@
+<%- include('header') %>
+
+<body>
+  <section class="navbar"><%- include('nav') %></section>
+
+  <section class="content">
+    <h1><%= currentDate %></h1>
+  </section>
+  <section class="form">
+    <div class="li-box">
+      <ul>
+        <!-- Loop through each task in the 'tasks' array -->
+        <% tasks.forEach((task, index) => { %>
+        <!-- Create a list item for the task -->
+        <li class="<%= task.completed ? 'completed' : '' %>">
+          <!-- Checkbox for task completion, toggles the task completion -->
+          <input type="checkbox" data-task-id="<%= task._id %>" <%=
+          task.completed ? 'checked' : '' %> onchange="toggleTaskCompletion(<%=
+          index %>)">
+          <!-- Display the task description -->
+          <span><%= task.task %></span>
+        </li>
+        <!-- End of the loop -->
+        <% }); %>
+      </ul>
+
+      <!-- Form to add a new task -->
+      <form method="POST" action="/addTask">
+        <input
+          type="text"
+          name="task"
+          placeholder="Add today's task..."
+          required
+        />
+        <button type="submit">+</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="footer"><%- include('footer') %></section>
+  <script src="/js/script.js"></script>
+</body>

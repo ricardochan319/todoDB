@@ -1,0 +1,140 @@
+/* Global */
+body {
+  background-color: #333;
+  color: white;
+}
+
+h1 {
+  background-color: red;
+  color: white;
+  border-radius: 5px;
+  width: 300px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+}
+
+.content,
+.form,
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+/* Navigation */
+.nav {
+  margin: 0 30px;
+}
+
+.tabs {
+  margin: 30px;
+}
+
+.tabs a {
+  text-decoration: none;
+  color: white;
+}
+
+.tabs i {
+  margin-right: 10px;
+}
+
+.icon-and-link {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+/* Task Items */
+.completed span {
+  text-decoration: line-through;
+}
+
+ul {
+  width: 280px;
+  list-style-type: none;
+  padding: 0;
+  margin: 10px;
+}
+
+li {
+  height: 80px;
+  background-color: white;
+  color: #333;
+  display: flex;
+  align-items: center;
+  padding-left: 50px;
+  border-bottom: 1px solid lightgrey;
+}
+
+li input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.li-box {
+  background-color: white;
+  border-radius: 5px;
+}
+
+/* Form */
+form {
+  background-color: white;
+  width: 280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px 10px 10px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+input {
+  border: none;
+  text-align: center;
+  font-size: 1rem;
+  outline: none;
+  padding: 0 0 0 50px;
+  color: #333;
+}
+
+button {
+  background-color: #333;
+  color: white;
+  font-size: 2rem;
+  border: none;
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Footer */
+footer {
+  margin: 20px;
+}
+
+/* Media query for screens with a maximum width of 768px */
+@media (max-width: 768px) {
+  li input[type="checkbox"] {
+    width: 50px; /* Set the width to 50px on mobile */
+  }
+
+  li {
+    padding-left: 10px;
+  }
+
+  input {
+    width: 80%;
+    padding: 0 10px;
+  }
+
+  button {
+    width: 45px;
+    height: 45px;
+    font-size: 1.5rem;
+  }
+}

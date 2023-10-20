@@ -1,0 +1,42 @@
+<%- include('header') %>
+
+<body>
+  <section class="navbar"><%- include('nav') %></section>
+
+  <section class="content">
+    <h1><%= currentDate %></h1>
+  </section>
+  <section class="form">
+    <div class="li-box">
+      <ul>
+        <!-- Loop through each work task in the 'workTasks' array -->
+        <% workTasks.forEach((workTask, index) => { %>
+        <!-- Create a list item for the work task -->
+        <li class="<%= workTask.completed ? 'completed' : '' %>">
+          <!-- Checkbox for work task completion, toggles the task completion -->
+          <input type="checkbox" data-task-id="<%= workTask._id %>" <%=
+          workTask.completed ? 'checked' : '' %>
+          onchange="toggleTaskCompletion(<%= index %>, 'workTasks')">
+
+          <!-- Display the work task description -->
+          <span><%= workTask.task %></span>
+        </li>
+        <% }); %>
+      </ul>
+
+      <!-- Form to add a new work task -->
+      <form method="POST" action="/workTasks">
+        <input
+          type="text"
+          name="task"
+          placeholder="Add a work task..."
+          required
+        />
+        <button type="submit">+</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="footer"><%- include('footer') %></section>
+  <script src="/js/script.js"></script>
+</body>
