@@ -4,10 +4,13 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // Connect to MongoDB
-mongoose.connect("mongodb://localhost:27017/todolistDB", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(
+  "mongodb+srv://ricardochan319:UpCZp07rlQWxvkj4@cluster0.eauz6vg.mongodb.net/todolistDB",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }
+);
 
 const db = mongoose.connection;
 
@@ -147,6 +150,11 @@ app.get("/:customListName", (req, res) => {
 });
 
 // Start the Express server
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
